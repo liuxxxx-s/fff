@@ -10,7 +10,7 @@ from selenium import webdriver
 from faker import Faker
 
 
-class Regist(BasePage):x
+class Regist(BasePage):
     # 核心元素
     f = Faker(locale='zh_CN')
     url = 'https://b2b.sit.expowh.com/store/regist.htm'
