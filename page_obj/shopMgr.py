@@ -13,7 +13,6 @@ class Mgr(BasePage):
 
     def __get_flag_elem__(self, K):
         # 获取证照名称的父级元素，用于后面的方法
-
         str_1 = '//label[contains(text(),"%s")]/../..' % K
         return self.locator((By.XPATH, str_1))
 
@@ -33,8 +32,14 @@ class Mgr(BasePage):
     def khsm(self):
         u=(By.XPATH,'//input [@placeholder="50个字以内"] ')
         self.input_(u,'dftygueuhjwklssp')
+
     def click_b_c(self):
         self.click(self.basic_configuration)
+
+    def fplx(self,s):
+        h=(By.XPATH,'//span[text()="%s"]/../span[1]'%s)
+        self.click(h)
+
 
 if __name__ == "__main__":
     #chrome.exe --remote-debugging-port=9222 --user-data-dir="C:\selenium_ui_auto"
@@ -45,10 +50,11 @@ if __name__ == "__main__":
     chrome_driver = r"C:\Users\liu\AppData\Local\Programs\Python\Python37\chromedriver.exe"
     driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
     # #
-    # mg=Mgr(driver)
+    mg=Mgr(driver)
+    mg.fplx('电票')
+    mg.fplx('普票')
     # mg.AAAAA('订单备注','关闭')
     # mg.AAAAA('建议零售价', '隐藏')
     # mg.AAAAA('商品效期', '显示')
 
     # mg.khsm()
-    driver.find_element_by_xpath('//span[text()="电票"]/../span[1]').click()
