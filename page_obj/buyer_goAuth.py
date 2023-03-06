@@ -126,20 +126,20 @@ if __name__ == "__main__":
         g.select_day2(i,d2[i])
         g.upload_an_image(i,d2[i])
 
-    # for i in d:
-    #     # 填写证照信息
-    #
-    #     if d[i].get('licence_no'):
-    #         print("有证照")
-    #         g.inpt_card_no(i,d[i])
-    #     else:
-    #         print("无需要填写")
-    #
-    #     # 选择日期
-    #     if d[i].get('calendar'):
-    #         g.select_day(i,d[i])
-    #
-    #     # 上传照片
-    #     g.upload_an_image(i,d[i])
+    for i in d:
+        # 填写证照信息
+
+        if d[i].get('licence_no'):
+            print("有证照")
+            g.inpt_card_no(i,d[i])
+        else:
+            print("无需要填写")
+
+        # 选择日期
+        if d[i].get('calendar'):
+            g.select_day(i,d[i])
+
+        # 上传照片
+        g.upload_an_image(i,d[i])
 
    # g.buttom_click()
