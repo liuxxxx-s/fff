@@ -106,6 +106,17 @@ class BasePage:
             print(self.locator(loc).get_attribute(text))
             return self.locator(loc).get_attribute(text)
 
+    def is_four_digits(string):
+        # 如果字符串为空或者长度不等于4，返回False
+        if not string or len(string) != 4:
+            return False
+        # 如果字符串只包含数字，返回True
+        if string.isdecimal():
+            return True
+        # 否则返回False
+        else:
+            return False
+
 
     def get_covde(self,loc):
         self.locator(loc).screenshot('ele.png')
@@ -115,6 +126,7 @@ class BasePage:
             img_bytes = f.read()
 
         res = ocr.classification(img_bytes)
+
         return  res
 
 

@@ -112,7 +112,7 @@ if __name__ == "__main__":
     chrome_driver = r"C:\Users\liu\AppData\Local\Programs\Python\Python37\chromedriver.exe"
     driver = webdriver.Chrome(chrome_driver, chrome_options=chrome_options)
 
-    d = {"法人委托书": {'calendar': '2024-12-31', 'img_ptah_card_name': "法人委托书"},
+    d = {
          '营业执照': {'licence_no': '91130230213384968F', 'calendar': '2024-12-30', 'img_ptah_card_name': "营业执照"},
          '开户许可证/开票信息': {'calendar': '2024-12-29', 'img_ptah_card_name': "开户证明"}
          }
@@ -121,11 +121,11 @@ if __name__ == "__main__":
 
     g = GoAuth4(driver)
     g.selet_scope('成药')
+    time.sleep(2)
+    for i in d2:
+        g.select_day2(i,d2[i])
+        g.upload_an_image(i,d2[i])
 
-    # for i in d2:
-    #     g.select_day2(i,d2[i])
-    #     g.upload_an_image(i,d2[i])
-    #
     # for i in d:
     #     # 填写证照信息
     #
@@ -142,4 +142,4 @@ if __name__ == "__main__":
     #     # 上传照片
     #     g.upload_an_image(i,d[i])
 
-    g.buttom_click()
+   # g.buttom_click()
